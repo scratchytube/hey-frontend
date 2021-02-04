@@ -7,8 +7,8 @@ const GeneratorBioForm = () => {
             <form>
                     
                 <h3>Sheesh this is a lot. Random plz</h3>
-                <input type="button" value="Fill out the form randomly" class="button" />
-                <input type="button" value="Submit" class="button" />
+                <input type="button" value="Fill out the form randomly" className="button" />
+                <input type="button" value="Submit" className="button" />
                         <br></br>
                         <br></br>
                 <h3>What kind of bio would you like?</h3>
@@ -32,7 +32,9 @@ const GeneratorBioForm = () => {
 
                 <h3>What was your first aol aim screenName</h3>
                 <input type="text" ></input>
-                <input type="button" value="suggest"></input>
+                <input type="button" value="suggest" className="button" ></input>
+
+                <input type="submit" name="submit" className="submit" />
             </form>
         </div>
     )
