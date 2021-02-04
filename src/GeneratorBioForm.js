@@ -34,6 +34,9 @@ const GeneratorBioForm = () => {
                 <input type="text" ></input>
                 <input type="button" value="suggest" className="button" ></input>
 
+                <br></br>
+                <br></br>
+
                 <input type="submit" name="submit" className="submit" />
             </form>
         </div>
