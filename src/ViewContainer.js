@@ -1,5 +1,7 @@
 import React from 'react'
 import GeneratorBioForm from './GeneratorBioForm'
+import PreviewBio from './PreviewBio'
+import GeneratorPictureForm from './GeneratorPictureForm'
 import './ViewContainer.css'
 
 const ViewContainer = () => {
@@ -13,14 +15,15 @@ return(
         {/* {bio_generator_form} */}
         <GeneratorBioForm />
 
-
-        {/* {profile_container} */}
-
         {/* {picture_generator_form} */}
+        <GeneratorPictureForm />
 
         {/* {bio_preview} */}
+        <PreviewBio />
 
         {/* {picture_preview} */}
+
+        {/* {profile_container} */}
 
     </div>
 )

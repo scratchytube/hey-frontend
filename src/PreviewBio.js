@@ -4,7 +4,10 @@ import './PreviewBio.css'
 const PreviewBio = () => {
     return (
         <div className="preview__bio" >
-            <h4>in the bio preview hehe</h4>
+            <p>FULL BIO Container</p>
+            <button>Save</button>
+            <button>Try again</button>
+            
         </div>
     )
 }
