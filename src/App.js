@@ -1,17 +1,27 @@
 import Header from './Header'
 import NavBar from './NavBar'
 import ViewContainer from './ViewContainer'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+
 
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-        <Header />
-        
-        <NavBar />
+      <Router> 
+        <Switch>
 
-        <ViewContainer />
+            <Header />
+          
+            <NavBar />
+
+          <Route exact path="/" >
+            <ViewContainer />
+          </Route>
+
+        </Switch>
+      </Router>
     </div>
   );
 }
