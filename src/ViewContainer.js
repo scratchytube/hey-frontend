@@ -2,18 +2,21 @@ import React from 'react'
 import GeneratorBioForm from './GeneratorBioForm'
 import PreviewBio from './PreviewBio'
 import GeneratorPictureForm from './GeneratorPictureForm'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import PreviewPicture from './PreviewPicture'
+import Home from './Pages/Home'
+import { Route, Switch } from 'react-router-dom'
 import './ViewContainer.css'
 
 const ViewContainer = () => {
 return(
     <div className="view__container" >
-            <h1>hey_</h1>
-            <p>We're just a little helper for your dating apps.</p>
-            <button>Get Started</button>
         
-        <Router>
+        
+        
             <Switch>
+                <Route exact path="/">
+                    <Home />
+                </Route>
                 <Route path="/bios/new" >
                     <GeneratorBioForm />
                 </Route>
@@ -28,9 +31,9 @@ return(
                 </Route>
 
                 {/* {profile_container} */}
+        </Switch>
 
-            </Switch>
-        </Router>
+       
 
     </div>
 )

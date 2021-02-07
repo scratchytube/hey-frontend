@@ -18,9 +18,9 @@ const NavBar = () => {
             <NavLink to="profile/:id" >
                 My Profile
             </NavLink>
-            <NavLink>
+            {/* <NavLink>
                 LogOut
-            </NavLink>
+            </NavLink> */}
         </nav>
 
 
