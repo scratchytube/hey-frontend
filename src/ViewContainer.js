@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Route, Switch } from 'react-router-dom'
 
-import GeneratorBioForm from './GeneratorBioForm'
+// import GeneratorBioForm from './GeneratorBioForm'
 import GeneratorPictureForm from './GeneratorPictureForm'
+import MadLibs from './MadLibs'
 
-
-
-import PreviewBioFunny from './PreviewBioFunny'
-import PreviewBio from './PreviewBio'
-import PreviewBioPoetic from './PreviewBioPoetic'
 
 import Home from './Pages/Home'
 import ProfileContainer from './ProfileContainer'
@@ -38,9 +34,9 @@ const ViewContainer = () => {
             setBio(bioArray))
     }, [])
 
-    const funny = bio.find((funnyBio => funnyBio.typeOfPrompt === "funny"))
-    const poetic = bio.find((poeticBio) => poeticBio.typeOfPrompt === "poetic")
-    const serious = bio.find((seriousBio) => seriousBio.typeOfPrompt === "serious")
+    // const funny = bio.find((funnyBio => funnyBio.typeOfPrompt === "funny"))
+    // const poetic = bio.find((poeticBio) => poeticBio.typeOfPrompt === "poetic")
+    // const serious = bio.find((seriousBio) => seriousBio.typeOfPrompt === "serious")
 
 return(
     <div className="view__container" >
@@ -55,21 +51,11 @@ return(
                     <ProfileContainer profileData={profileData} />
                 </Route>
                 <Route path="/bios/new" >
-                    <GeneratorBioForm />
+                    <MadLibs />
                 </Route>
                 <Route path="/pictures/new" >
                     <GeneratorPictureForm profileData={profileData}/>
                 </Route>
-                <Route exact path="/bios/funny" >
-                    <PreviewBioFunny funnyBio={funny}/>
-                </Route>
-                <Route path="/bios/serious" >
-                    <PreviewBio seriousBio={serious}/>
-                </Route>
-                <Route path="/bios/poetic" >
-                    <PreviewBioPoetic poeticBio={poetic}/>
-                </Route>
-                
             </Switch>
 
        

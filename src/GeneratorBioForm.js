@@ -110,34 +110,6 @@ const GeneratorBioForm = () => {
 
     
 
-    // our post method for the bio generator
-    // const handleSubmit = (e) => {
-    //     e.preventDefault()
-
-    //         console.log(bioDropDown)
-
-    //         const formData = {
-    //             user: null,
-    //             bio_id: bioDropDown,
-    //             picture: null
-    //         }
-    //     fetch ("http://localhost:3000/api/v1/profiles", {
-    //         method: "POST",
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify(formData),
-    //     })  
-    //         .then((r) => r.json())
-    //         .then(newProfileData => {
-    //             console.log(newProfileData)
-    //         })
-                
-    // }
-
-   
-    //history.pushState(`profile/${newProfileData.id}`)
-
 
 
     return (
