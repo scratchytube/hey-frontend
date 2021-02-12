@@ -1,16 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './PreviewBio.css'
 
-const PreviewBio = ({ seriousBio }) => {
+const PreviewBioPoetic = ({ poeticBio }) => {
+
+    
+
     return (
-        <div className="preview__bio" >
-            <p>{ seriousBio.snippets }</p>
+        <div>
+            <p>{ poeticBio.snippets }</p>
             <button>Save</button>
             <Link to="/bios/new" >Try Again!</Link>
-            
         </div>
     )
 }
 
-export default PreviewBio
+export default PreviewBioPoetic

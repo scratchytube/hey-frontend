@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState,  } from 'react'
+import { Link } from 'react-router-dom'
 import './GeneratorBioForm.css'
 
 const GeneratorBioForm = () => {
@@ -9,79 +10,133 @@ const GeneratorBioForm = () => {
     const [govtIllegalQuest, setGovtIllegalQuest] = useState("")
     const govtAnswers = ["weed", "dancing", "vaccination", "beanie babies"]
 
-    const [bioDropDown, setBioDropDown] = useState("1")
-    const [kindOfBio, setKindOfBio] = useState([])
-    // const bioAnswers = ["funny", "serious", "poetic" ]
+    const [crimes, setCrimes] = useState("")
+    const crimePrompts = ["hopped a cab", "throw a snowball at a cop", "stole a vacuum cleaner" ]
 
-    useEffect(() => {
-        fetch("http://localhost:3000/api/v1/bios")
-        .then ((r) => r.json())
-        .then(bioArray => 
-            setKindOfBio(bioArray))
-    }, 
-    []
-    )
+    const [fartPlaces, setFartPlaces] = useState("")
+    const farties = ["on the train", "elevator", "in an interview", ]
 
-    console.log(kindOfBio)
+    const [ weirdGuestStuff, setWeirdGuestStuff] = useState("")
+    const weirdGuest = ["put their shoes on my couch", "started cleaning", "kick my dog"]
+    
+    const [dayGoing, setDayGoing] = useState("")
+    const dayResponses = ["lol plz go away", "pssh turrible", "yeah i cant do this"]
 
-    const renderBioTypeList = () => {
-        return (
-            kindOfBio.map((bioType) => {
-                return (
-                    <option
-                        key={bioType.id}
-                        value={bioType.id} 
-                        >
-                        {bioType.typeOfPrompt}
-                    </option>
-                    )
-                }
-            )
-        )
-    }
+    const [travel, setTravel] = useState("")
+    const travelPrompts = ["eh", "omg so much", "travelling is the best!"]
+
+    
+    // const [bioDropDown, setBioDropDown] = useState("1")
+    // const [kindOfBio, setKindOfBio] = useState([])
+    // // fetch for our bios
+    // useEffect(() => {
+    //     fetch("http://localhost:3000/api/v1/bios")
+    //     .then ((r) => r.json())
+    //     .then(bioArray => 
+    //         setKindOfBio(bioArray))
+    // }, 
+    // []
+    // )
+
+    // our dynamic dropdown full of bio types
+    // const renderBioTypeList = () => {
+    //     return (
+    //         kindOfBio.map((bioType) => {
+    //             return (
+    //                 <option
+    //                     key={bioType.id}
+    //                     value={bioType.id} 
+    //                     >
+    //                     {bioType.typeOfPrompt}
+    //                 </option>
+    //                 )}))}
 
 
-
+    //our function for the general randomness
     const quickRandom = () => {
         randomScreenNames()
         randomGovtAnswers()
+        randomCrimes()
+        randomFartPlaces()
+        randomGuestStuff()
+        randomDayGoing()
+        randomTravelPrompt()
     }
 
-    
+    //function for randomizing screenNames
     const randomScreenNames = () => {
         const randomNumber = Math.floor(Math.random() * (someScreenNames.length))
         const misterRandomScreenName = someScreenNames[randomNumber]
         setScreenName(misterRandomScreenName)
     }
 
+    // function for randomizing the illegal thingamabob question
     const randomGovtAnswers = () => {
         const randomNumberForIllegal = Math.floor(Math.random() * (govtAnswers.length))
         const randomIllegalAnswers = govtAnswers[randomNumberForIllegal]
         setGovtIllegalQuest(randomIllegalAnswers)
     }
 
-
-    // Was gonna randomize the drop down but screw it at this point. 
-    // const kindOfBio = (e) => {
-    //     const randomNumberForBio = Math.floor(Math.random() * (kindOfBio.length))
-    //     const randomness = bioAnswers[randomNumberForBio]
-    //     setKindOfBio(randomness)
-    // }
-    // const selection = e.target.value
     
-    // setKindOfBio(e.target.value)
-
-    
-
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-
-        const formData = {
-            
-        }
+    const randomCrimes = () => {
+        const randomNumberforCrime = Math.floor(Math.random() * (crimePrompts.length))
+        const randomCrimeAnswers = crimePrompts[randomNumberforCrime]
+        setCrimes(randomCrimeAnswers)
     }
+
+    const randomFartPlaces = () => {
+        const randomNumberforFarts = Math.floor(Math.random() * (farties.length))
+        const randomFartAnswers = farties[randomNumberforFarts]
+        setFartPlaces(randomFartAnswers)
+    }
+
+    const randomGuestStuff = () => {
+        const randomNumberForWeirdGuest = Math.floor(Math.random() * (weirdGuest.length))
+        const randomWeirdGuestAnswers = weirdGuest[randomNumberForWeirdGuest]
+        setWeirdGuestStuff(randomWeirdGuestAnswers)
+    }
+
+    const randomDayGoing = () => {
+        const randomNumberForDayResponses = Math.floor(Math.random() * dayResponses.length)
+        const randomDayAnswers = dayResponses[randomNumberForDayResponses]
+        setDayGoing(randomDayAnswers)
+    }
+
+    const randomTravelPrompt = () => {
+        const randomNumberForTravelPrompt = Math.floor(Math.random() * travelPrompts.length)
+        const randomTravelAnswers = travelPrompts[randomNumberForTravelPrompt]
+        setTravel(randomTravelAnswers)
+    }
+
     
+
+    // our post method for the bio generator
+    // const handleSubmit = (e) => {
+    //     e.preventDefault()
+
+    //         console.log(bioDropDown)
+
+    //         const formData = {
+    //             user: null,
+    //             bio_id: bioDropDown,
+    //             picture: null
+    //         }
+    //     fetch ("http://localhost:3000/api/v1/profiles", {
+    //         method: "POST",
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify(formData),
+    //     })  
+    //         .then((r) => r.json())
+    //         .then(newProfileData => {
+    //             console.log(newProfileData)
+    //         })
+                
+    // }
+
+   
+    //history.pushState(`profile/${newProfileData.id}`)
 
 
 
@@ -91,21 +146,9 @@ const GeneratorBioForm = () => {
                     
                 <h3>Sheesh this is a lot. Random plz</h3>
                 <input type="button" value="Fill out the form randomly" className="button" onClick={quickRandom} />
-                <input type="button" value="Submit" className="button" onSubmit={handleSubmit} />
+                <input type="button" value="Submit" className="button"  />
                         <br></br>
                         <br></br>
-
-                <h3>What kind of bio would you like?</h3>
-                <select 
-                name="name" 
-                value={bioDropDown} 
-                onChange={(e) => setBioDropDown(e.target.value)}  >
-                    {renderBioTypeList()}
-                </select>
-                    
-                    <br></br>
-                    <br></br>
-            
 
                 <h3>What was your first aol aim screenName</h3>
                 <input type="text" value={screenName} onChange={(e) => setScreenName(e.target.value)} ></input>
@@ -116,25 +159,33 @@ const GeneratorBioForm = () => {
                 <input type="button" value="suggest" className="button" onClick={randomGovtAnswers} ></input>
 
                 <h3>If you were arrested with no explaination, what would your friends and family assume you had done?</h3>
+                <input type="text" value={crimes} onChange={(e) => setCrimes(e.target.value)} ></input>
+                <input type="button" value="suggest" className="button" onClick={randomCrimes} ></input>
 
-                <h3>Where was the most in appropriate / most embarrassing place you’ve farted?</h3>
+                <h3>Where was the most inappropriate / embarrassing place you’ve farted?</h3>
+                <input type="text" value={fartPlaces} onChange={(e) => setFartPlaces(e.target.value)} ></input>
+                <input type="button" value="suggest" className="button" onClick={randomFartPlaces} ></input>
 
-                <h3>How do you feel about putting pineapple on pizza?</h3>
-
-                <h3>If animals could talk, which would be the rudest?</h3>
 
                 <h3>What’s the weirdest thing a guest has done at your house?</h3>
-
-                <h3>What would be the absolute worst name you could give your child?</h3>
+                <input type="text" value={weirdGuestStuff} onChange={(e) => setWeirdGuestStuff(e.target.value)} ></input>
+                <input type="button" value="suggest" className="button" onClick={randomGuestStuff} ></input>
 
                 <h3>What are some fun ways to answer everyday questions like “how’s it going” or “what do you do”?</h3>
+                <input type="text" value={dayGoing} onChange={(e) => setDayGoing(e.target.value)} ></input>
+                <input type="button" value="suggest" className="button" onClick={randomDayGoing} ></input>
 
                 <h3>How much do you love to travel?</h3>
+                <input type="text" value={travel} onChange={(e) => setTravel(e.target.value)} ></input>
+                <input type="button" value="suggest" className="button" onClick={randomTravelPrompt} ></input>
 
                 <br></br>
                 <br></br>
 
-                <input type="submit" name="submit" className="submit" onSubmit={handleSubmit} />
+                <Link to="/bios/funny" >Give me a funny Bio</Link>
+                <Link to="/bios/serious" >Give me a serious Bio</Link>
+                <Link to="/bios/poetic"  >Give me a poetic Bio</Link>
+
             </form>
         </div>
     )

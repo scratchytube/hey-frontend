@@ -6,16 +6,16 @@ const NavBar = () => {
     return(
 
         <nav>
-            <NavLink to="/" className="button">
+            <NavLink to="/" >
                 Home
             </NavLink>
-            <NavLink to="/pictures/new" className="button" >
+            <NavLink to="/pictures/new"  >
                 Picture Generator
             </NavLink>
-            <NavLink to="/bios/new" className="button" >
+            <NavLink to="/bios/new"  >
                 Bio Generator
             </NavLink>
-            <NavLink to="profile/:id" >
+            <NavLink to="/profile" >
                 My Profile
             </NavLink>
             {/* <NavLink>

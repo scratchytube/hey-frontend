@@ -1,12 +1,17 @@
 import React from 'react'
+import FavBioCard from './FavBioCard'
 import './FavBioContainer.css'
 
-const FavoriteBiosContainer = () => {
-    return(
-        <div className="favorite_bio_container" >
-            <h5>im in the bio container!</h5>
+const FavoriteBiosContainer = ({ profileData }) => {
 
-            {/* {Bio Card} */}
+    const misterProfile = profileData.map((profileBio) => (
+        <FavBioCard key={profileBio.typeOfPrompt} bioSnippet={profileBio.bio} />
+    ))
+   
+    return (
+        <div className="favorite_bio_container" >
+
+            {misterProfile}
         </div>
     )
 }
